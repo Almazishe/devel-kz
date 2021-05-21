@@ -1,23 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, User
-from django.conf import settings
-
 from utils.models import DateModel, BaseModel, Deletable
-
-import os
-import random
-
-
-# def get_file_path(instance, filename):
-#     ext = filename.split('.')[-1]
-#     filename = "%s.%s" % (uuid.uuid4(), ext)
-#     return os.path.join('accounts/logos', filename)
-
-
-def get_random_image():
-    images = os.listdir(str(settings.BASE_DIR / 'media' / 'default_logos'))
-    url = f"default_logos/{random.choice(images)}"
-    return url
 
 
 class CustomUserManager(BaseUserManager):
