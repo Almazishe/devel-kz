@@ -161,6 +161,10 @@ class Projects(BaseModel, DateModel, Deletable):
 
 
 class Resume(models.Model):
+    """ 
+    Модель резюме отправленных через главную страницу сайта
+    """
+
     cover_letter = models.CharField(max_length=255)
     position = models.CharField(max_length=64)
 
@@ -171,6 +175,10 @@ class Resume(models.Model):
 
 
 class CallMeRequest(models.Model):
+    """
+    Модель запросов на звонок, отправленных через главную
+    страницу сайта
+    """
     phone = models.CharField(max_length=12)
     is_viewed = models.BooleanField(default=False)
     date_sent = models.DateField(auto_now_add=True)
