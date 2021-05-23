@@ -127,7 +127,6 @@ class Customer(models.Model):
         return f'{self.name}'
 
 
-
 class Projects(BaseModel, DateModel, Deletable):
     """
         Проект
@@ -159,3 +158,19 @@ class Projects(BaseModel, DateModel, Deletable):
 
     def __str__(self):
         return f'{self.title}'
+
+
+class Resume(models.Model):
+    cover_letter = models.CharField(max_length=255)
+    position = models.CharField(max_length=64)
+
+    resume_image = models.ImageField(upload_to='img/resumes')
+    is_viewed = models.BooleanField(default=False)
+
+    date_sent = models.DateField(auto_now_add=True)
+
+
+class CallMeRequest(models.Model):
+    phone = models.CharField(max_length=12)
+    is_viewed = models.BooleanField(default=False)
+    date_sent = models.DateField(auto_now_add=True)
