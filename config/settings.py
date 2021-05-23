@@ -134,3 +134,4 @@ REST_USE_JWT = True
 JWT_AUTH_COOKIE = 'access-token'
 JWT_AUTH_REFRESH_COOKIE = 'refresh-token'
 
+OLD_PASSWORD_FIELD_ENABLED = True
