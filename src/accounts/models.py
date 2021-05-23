@@ -5,7 +5,13 @@ from .managers import CustomManager
 
 
 class CustomUser(AbstractUser):
+    """ 
+    Inherits default django user model
+    has identical behavior except for 
+    .objects.create_user and create_superuser.
     
+    """
+
     email = models.EmailField(
         'email address',
         max_length=255, 
