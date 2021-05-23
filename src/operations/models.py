@@ -1,6 +1,7 @@
 from django.db import models
 from utils.models import BaseModel, DateModel, Deletable
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+
 
 class IncomeCategory(models.Model):
     name = models.CharField("Название", max_length=255)
@@ -139,7 +140,7 @@ class Projects(BaseModel, DateModel, Deletable):
         null=True,
         blank=True
     )
-    developers = models.ManyToManyField(User)
+    developers = models.ManyToManyField(get_user_model())
     payments = models.ManyToManyField(Income)
     expences = models.ManyToManyField(Outcome)
 
