@@ -1,6 +1,7 @@
 from django.db import models
 from utils.models import BaseModel, DateModel, Deletable
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+
 
 class IncomeCategory(models.Model):
     name = models.CharField("Название", max_length=255)
@@ -127,7 +128,6 @@ class Customer(models.Model):
         return f'{self.name}'
 
 
-
 class Projects(BaseModel, DateModel, Deletable):
     """
         Проект
@@ -140,7 +140,7 @@ class Projects(BaseModel, DateModel, Deletable):
         null=True,
         blank=True
     )
-    developers = models.ManyToManyField(User)
+    developers = models.ManyToManyField(get_user_model())
     payments = models.ManyToManyField(Income)
     expences = models.ManyToManyField(Outcome)
 
@@ -159,3 +159,27 @@ class Projects(BaseModel, DateModel, Deletable):
 
     def __str__(self):
         return f'{self.title}'
+
+
+class Resume(models.Model):
+    """ 
+    Модель резюме отправленных через главную страницу сайта
+    """
+
+    cover_letter = models.CharField(max_length=255)
+    position = models.CharField(max_length=64)
+
+    resume_image = models.ImageField(upload_to='img/resumes')
+    is_viewed = models.BooleanField(default=False)
+
+    date_sent = models.DateField(auto_now_add=True)
+
+
+class CallMeRequest(models.Model):
+    """
+    Модель запросов на звонок, отправленных через главную
+    страницу сайта
+    """
+    phone = models.CharField(max_length=12)
+    is_viewed = models.BooleanField(default=False)
+    date_sent = models.DateField(auto_now_add=True)
