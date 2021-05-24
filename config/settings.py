@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     # Apps
     'accounts',
     'operations',
-    'dj_auth',
 ]
 
 MIDDLEWARE = [
@@ -74,7 +73,7 @@ DATABASES = {
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'dj_auth.backends.CustomUserBackend',    
+    'accounts.backends.CustomUserBackend',    
 )
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
@@ -126,7 +125,7 @@ REST_FRAMEWORK = {
 }
 
 REST_AUTH_SERIALIZERS = {
-    'LOGIN_SERIALIZER': 'dj_auth.serializers.CustomLoginSerializer'
+    'LOGIN_SERIALIZER': 'accounts.serializers.CustomLoginSerializer'
 }
 
 REST_USE_JWT = True
