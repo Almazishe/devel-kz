@@ -14,17 +14,13 @@ class CustomUser(AbstractUser):
 
     email = models.EmailField(
         'email address',
-        max_length=255, 
-        unique=True, 
+        max_length=255,  
         blank=True,
-        default='',
     )
     phone = models.CharField(
         'phone number',
         max_length=12,
-        unique=True, 
         blank=True,
-        default='',
     )
 
     EMAIL_FIELD = 'email'
