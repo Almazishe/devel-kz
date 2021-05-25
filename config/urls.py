@@ -8,8 +8,7 @@ urlpatterns = [
         path('v1/', include([
             # Authorization, User related apis
             path('auth/', include('src.accounts.urls')),
-            path('auth/', include('dj_rest_auth.urls')),
-
+            
             # Another apis
             # ...
         ]))
