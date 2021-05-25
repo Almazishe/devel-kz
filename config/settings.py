@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     # Apps
     'accounts',
     'operations',
-    'dj_auth',
     'projects',
 ]
 
@@ -75,7 +74,7 @@ DATABASES = {
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'dj_auth.backends.CustomUserBackend',    
+    'accounts.backends.CustomUserBackend',    
 )
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
@@ -127,7 +126,7 @@ REST_FRAMEWORK = {
 }
 
 REST_AUTH_SERIALIZERS = {
-    'LOGIN_SERIALIZER': 'dj_auth.serializers.CustomLoginSerializer'
+    'LOGIN_SERIALIZER': 'accounts.serializers.CustomLoginSerializer'
 }
 
 REST_USE_JWT = True
@@ -135,3 +134,4 @@ REST_USE_JWT = True
 JWT_AUTH_COOKIE = 'access-token'
 JWT_AUTH_REFRESH_COOKIE = 'refresh-token'
 
+OLD_PASSWORD_FIELD_ENABLED = True

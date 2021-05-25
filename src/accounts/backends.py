@@ -1,6 +1,6 @@
 from django.contrib.auth.backends import ModelBackend
 
-from accounts.models import CustomUser
+from .models import CustomUser
 
 
 class CustomUserBackend(ModelBackend):
