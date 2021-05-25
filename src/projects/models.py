@@ -1,7 +1,8 @@
 from django.db import models
 from utils.models import BaseModel, DateModel, Deletable
 from django.contrib.auth import get_user_model
-from src.operations.models import Income, Outcome
+from operations.models import Income, Outcome
+
 
 # Create your models here.
 class Customer(models.Model):
