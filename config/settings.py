@@ -23,9 +23,9 @@ INSTALLED_APPS = [
     'dj_rest_auth',
 
     # Apps
-    'accounts',
-    'operations',
-    'projects',
+    'accounts.apps.AccountsConfig',
+    'operations.apps.OperationsConfig',
+    'projects.apps.ProjectsConfig',
 ]
 
 MIDDLEWARE = [
