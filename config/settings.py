@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     # Apps
     'accounts',
     'operations',
+    'projects',
 ]
 
 MIDDLEWARE = [
